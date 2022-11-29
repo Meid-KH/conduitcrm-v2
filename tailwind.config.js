@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
@@ -37,19 +39,11 @@ module.exports = {
 				light: "#fff",
 			},
 			fontFamily: {
-				// heading: ["Didot", "Montserrat", "sans-serif"],
 				// heading: [
-				// 	"Didot",
-				// 	"var(--font-montserrat)",
+				// 	"var(--font-roboto)",
 				// 	...fontFamily.sans,
 				// ],
-				// main: ["var(--font-montserrat)", ...fontFamily.sans],
-				// main: [
-				// 	"-apple-system",
-				// 	"BlinkMacSystemFont",
-				// 	"Montserrat",
-				// 	"sans-serif",
-				// ],
+				main: ["var(--font-roboto)", ...fontFamily.sans],
 			},
 		},
 	},
