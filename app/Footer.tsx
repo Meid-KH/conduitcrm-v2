@@ -131,7 +131,7 @@ const Footer = () => {
 									<li key={i}>
 										{item?.external ? (
 											<a
-												className="tracking-wide"
+												className="tracking-wide underline-offset-4 hover:underline"
 												href={item?.url}
 												target="_blank"
 												rel="noopener, noreferrer"
