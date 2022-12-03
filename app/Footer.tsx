@@ -75,6 +75,88 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+	const Company = () => (
+		<div className="space-y-5">
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
+				Company
+			</h4>
+			<ul className="space-y-3">
+				{companyLinks.map((item, i) => (
+					<li key={i}>
+						{item?.external ? (
+							<a
+								className="tracking-wide underline-offset-4 hover:underline"
+								href={item?.url}
+								target="_blank"
+								rel="noopener, noreferrer"
+							>
+								{item?.label}
+							</a>
+						) : (
+							<Link
+								className="tracking-wide underline-offset-2 hover:underline"
+								href={item?.url}
+							>
+								{item?.label}
+							</Link>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+
+	const UsefulLinks = () => (
+		<div className="space-y-5">
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
+				Useful Links
+			</h4>
+			<ul className="space-y-3">
+				{usefulLinks.map((item, i) => (
+					<li key={i}>
+						{item?.external ? (
+							<a
+								className="tracking-wide underline-offset-4 hover:underline"
+								href={item?.url}
+								target="_blank"
+								rel="noopener, noreferrer"
+							>
+								{item?.label}
+							</a>
+						) : (
+							<Link
+								className="tracking-wide underline-offset-4 hover:underline"
+								href={item?.url}
+							>
+								{item?.label}
+							</Link>
+						)}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+
+	const Social = () => (
+		<div className="space-y-5">
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
+				Social
+			</h4>
+			<ul className="space-y-3">
+				{socialLinks.map((item, i) => (
+					<li key={i}>
+						<Link
+							className="tracking-wide underline-offset-2 hover:underline"
+							href={item?.url}
+						>
+							{item?.label}
+						</Link>
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+
 	return (
 		<footer className="py-20 border-t border-light/20">
 			<div className="container">
@@ -94,79 +176,9 @@ const Footer = () => {
 						</p>
 					</div>
 					<div className="grid grid-cols-3 gap-10">
-						<div className="space-y-5">
-							<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
-								Company
-							</h4>
-							<ul className="space-y-3">
-								{companyLinks.map((item, i) => (
-									<li key={i}>
-										{item?.external ? (
-											<a
-												className="tracking-wide"
-												href={item?.url}
-												target="_blank"
-												rel="noopener, noreferrer"
-											>
-												{item?.label}
-											</a>
-										) : (
-											<Link
-												className="tracking-wide underline-offset-2 hover:underline"
-												href={item?.url}
-											>
-												{item?.label}
-											</Link>
-										)}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="space-y-5">
-							<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
-								Useful Links
-							</h4>
-							<ul className="space-y-3">
-								{usefulLinks.map((item, i) => (
-									<li key={i}>
-										{item?.external ? (
-											<a
-												className="tracking-wide underline-offset-4 hover:underline"
-												href={item?.url}
-												target="_blank"
-												rel="noopener, noreferrer"
-											>
-												{item?.label}
-											</a>
-										) : (
-											<Link
-												className="tracking-wide underline-offset-4 hover:underline"
-												href={item?.url}
-											>
-												{item?.label}
-											</Link>
-										)}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="space-y-5">
-							<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
-								Social
-							</h4>
-							<ul className="space-y-3">
-								{socialLinks.map((item, i) => (
-									<li key={i}>
-										<Link
-											className="tracking-wide underline-offset-2 hover:underline"
-											href={item?.url}
-										>
-											{item?.label}
-										</Link>
-									</li>
-								))}
-							</ul>
-						</div>
+						<Company />
+						<UsefulLinks />
+						<Social />
 					</div>
 				</div>
 			</div>
