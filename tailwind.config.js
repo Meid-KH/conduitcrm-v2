@@ -30,6 +30,7 @@ module.exports = {
 					300: "#EC2A2A",
 				},
 				purple: "#4859F2",
+				violet: "#831FB2",
 				skin: {
 					100: "#1A1830",
 					200: "#010314",

@@ -5,6 +5,7 @@
 @layer components {
 	.radial {
 		&--purpleBlue {
+			@apply opacity-50;
 			background: radial-gradient(
 					50% 50% at 50% 50%,
 					#f52858b6 0%,
@@ -14,9 +15,15 @@
 					50% 50% at 50% 50%,
 					#0085ff 0%,
 					rgba(222, 196, 167, 0) 100%
+				),
+				radial-gradient(
+					50% 50% at 50% 50%,
+					#1a1830 0%,
+					rgba(222, 196, 167, 0) 100%
 				);
 		}
 		&--purple {
+			@apply opacity-50;
 			background: radial-gradient(
 				50% 50% at 50% 50%,
 				#4859f2 0%,
