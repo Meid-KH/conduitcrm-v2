@@ -228,9 +228,9 @@ const Crm = () => {
 								</div>
 								<p
 									className={classNames(
-										"mt-4 pl-6 text-lg font-light tracking-wide",
+										"mt-4 text-lg font-light tracking-wide",
 										item.slug !== selectedFeature.slug &&
-											"pl-0 hidden"
+											"hidden"
 									)}
 								>
 									{item?.description}
