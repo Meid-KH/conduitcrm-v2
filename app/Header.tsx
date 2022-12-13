@@ -17,7 +17,7 @@ const MenuItems = [
 	},
 	{
 		label: "Pricing",
-		url: "/",
+		url: "/pricing",
 	},
 	{
 		label: "Resources",
@@ -25,7 +25,7 @@ const MenuItems = [
 	},
 	{
 		label: "Contact",
-		url: "/",
+		url: "/contact",
 	},
 ];
 
@@ -46,14 +46,15 @@ const LinkItem: FC<IMenuItem> = ({ label, url }) => {
 const Header = () => {
 	return (
 		<header className={classNames("relative", "py-10 px-8")}>
-			<span
+			<Link
+				href="/"
 				className={classNames(
 					"w-48 absolute left-0 top-0 overflow-hidden"
 				)}
 			>
 				{/* <Logo className="-translate-x-8 -translate-y-8" /> */}
 				<LogoLarge />
-			</span>
+			</Link>
 			<div className="container">
 				<nav className="flex items-center justify-between gap-6">
 					<div className="w-14">
@@ -74,7 +75,7 @@ const Header = () => {
 						</li>
 						<li>
 							<Link
-								href="/"
+								href="/pricing"
 								className={classNames(
 									"px-9 py-4 font-medium",
 									"bg-primary border-2 border-primary hover:bg-skin-200"

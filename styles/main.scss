@@ -3,8 +3,18 @@
 @tailwind utilities;
 
 @layer components {
+	body {
+		@apply overflow-x-hidden;
+	}
+}
+@layer components {
 	.radial {
-		&--purpleBlue {
+		@apply absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+		@apply w-screen h-screen overflow-x-hidden;
+		&::before {
+			@apply content-[""] blur-xl absolute inset-0;
+		}
+		&--purpleBlue::before {
 			@apply opacity-50;
 			background: radial-gradient(
 					50% 50% at 50% 50%,
@@ -22,13 +32,22 @@
 					rgba(222, 196, 167, 0) 100%
 				);
 		}
-		&--purple {
+		&--purple::before {
 			@apply opacity-50;
 			background: radial-gradient(
-				50% 50% at 50% 50%,
-				#4859f2 0%,
-				rgba(222, 196, 167, 0) 100%
-			);
+					50% 50% at 50% 50%,
+					#4859f2 0%,
+					rgba(222, 196, 167, 0) 100%
+				),
+				radial-gradient(
+					50% 50% at 50% 50%,
+					#1a1830 0%,
+					rgba(222, 196, 167, 0) 100%
+				);
 		}
 	}
 }
+// Swiper
+// .swiper-slide:not(.swiper-slide-active) {
+// 	@apply -translate-x-8;
+// }

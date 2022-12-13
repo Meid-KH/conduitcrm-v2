@@ -1,1 +1,1 @@
-export * as default from "./Logo";
+export * as default from "./";
