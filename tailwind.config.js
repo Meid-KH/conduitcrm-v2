@@ -8,6 +8,7 @@ module.exports = {
 		"./app/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
+		groupScope: "scope",
 		extend: {
 			container: {
 				center: true,
@@ -24,6 +25,8 @@ module.exports = {
 				primary: "#0C6DFFCF",
 				info: "#2496FF",
 				teal: "#20EDE1",
+				blueSea: "#243247",
+				violet: "#6937F9",
 				danger: {
 					100: "#EE1D8EA1",
 					200: "#F657A4",
@@ -48,5 +51,9 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		require("@tailwindcss/line-clamp"),
+		require("@tailwindcss/forms"),
+		require("tailwindcss-nested-groups"),
+	],
 };

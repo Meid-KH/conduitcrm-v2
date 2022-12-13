@@ -39,7 +39,7 @@ const Intro = () => {
 	React.useEffect(() => {
 		document.addEventListener("keydown", function (event) {
 			if (event.key === "r" || event.key === "R") {
-				console.log("Now go to pricing");
+				// console.log("Now go to pricing");
 				router.push("/pricing");
 			}
 		});
@@ -430,7 +430,7 @@ const Testimonial = () => {
 				transition={transition}
 			>
 				<Swiper
-					className="!py-10 -my-10"
+					className="!pt-10"
 					spaceBetween={50}
 					slidesPerView={1}
 					modules={[Navigation, EffectFade]}
