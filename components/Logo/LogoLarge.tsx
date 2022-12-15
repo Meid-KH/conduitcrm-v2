@@ -1,7 +1,15 @@
-const LogoLarge = () => {
+import { classNames } from "utils/classNames";
+
+const LogoLarge = ({ className = "" }: { className?: string }) => {
 	return (
 		<>
-			<svg width="174" height="177" viewBox="0 0 174 177" fill="none">
+			<svg
+				className={classNames(className)}
+				width="174"
+				height="177"
+				viewBox="0 0 174 177"
+				fill="none"
+			>
 				<rect
 					x="-32"
 					y="-36"
