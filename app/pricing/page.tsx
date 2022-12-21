@@ -1,12 +1,12 @@
-import React from "react";
+import Intro from "./Intro";
+import Table from "./Table";
 
 const page = () => {
 	return (
-		<section className="py-60">
-			<div className="container">
-				<h1 className="text-7xl font-black">Pricing...</h1>
-			</div>
-		</section>
+		<>
+			<Intro />
+			<Table />
+		</>
 	);
 };
 

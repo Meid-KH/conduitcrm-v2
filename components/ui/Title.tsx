@@ -12,6 +12,7 @@ const Title: React.FC<{
 		| "3xl"
 		| "4xl"
 		| "5xl"
+		| "6xl"
 		| "7xl"
 		| "8xl"
 		| "9xl";
@@ -21,7 +22,7 @@ const Title: React.FC<{
 	children: React.ReactNode | React.ReactNode[];
 	className?: string;
 }> = ({
-	size = "7xl",
+	size = "6xl",
 	color = "red",
 	dir,
 	as: Tag = "h1",
@@ -29,6 +30,7 @@ const Title: React.FC<{
 	className,
 }) => {
 	const colors: { [key: string]: string } = {
+		current: "text-current",
 		red: "text-transparent bg-clip-text bg-gradient-to-r from-danger-300 to-danger-200",
 		blue: "font-medium__ text-transparent bg-clip-text bg-gradient-to-r from-teal via-info to-primary",
 		whitePurple:

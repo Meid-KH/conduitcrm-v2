@@ -3,22 +3,17 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { classNames } from "utils/classNames";
-import { FiCheck, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
+import { transition } from "utils/ui";
 // import Swiper core and required modules
+import { FiCheck, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Swiper as SwiperType, Navigation, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { Waves } from "components/Waves";
 import { motion } from "framer-motion";
-import { log } from "console";
-
-const transition = {
-	duration: 0.67,
-	ease: [0.6, -0.05, 0.01, 0.99],
-	// delay: 0.4,
-};
+import { Title } from "components/ui";
 
 export default function page() {
 	return (
@@ -29,7 +24,6 @@ export default function page() {
 			<Focus />
 			<Testimonial />
 			<Features />
-			<GetResults />
 		</>
 	);
 }
@@ -49,19 +43,23 @@ const Intro = () => {
 		<section className="relative my-40">
 			<Waves className="absolute inset-x-0 top-1/4 opacity-70" />
 			<div className="container">
-				<div className="text-center space-y-24">
-					<motion.h1
-						className={classNames(
-							"text-7xl",
-							"text-transparent bg-clip-text bg-gradient-to-r from-light via-purple to-danger-200"
-						)}
+				<div className="relative text-center space-y-24">
+					<motion.div
 						initial={{ y: 50, opacity: 0 }}
 						whileInView={{ y: 0, opacity: 1 }}
 						viewport={{ once: true }}
 						transition={transition}
 					>
-						The most advanced platform for the Real Estate industry
-					</motion.h1>
+						<Title
+							as="h1"
+							size="7xl"
+							color="whitePurple"
+							dir="center"
+						>
+							The most advanced platform for the Real Estate
+							industry
+						</Title>
+					</motion.div>
 					<motion.div
 						initial={{ y: 25, opacity: 0 }}
 						whileInView={{ y: 0, opacity: 1 }}
@@ -73,7 +71,8 @@ const Intro = () => {
 							href="/pricing"
 							className={classNames(
 								"inline-block px-8 py-5 text-center text-2xl tracking-wide",
-								"text-light bg-primary/80"
+								"text-light bg-primary/80 border border-transparent",
+								"hover:bg-skin-200 hover:border-skin-light"
 							)}
 						>
 							Get started for free
@@ -104,7 +103,7 @@ const Intro = () => {
 					viewport={{ once: true }}
 					transition={transition}
 					className="origin-center radial radial--purpleBlue"
-				></motion.span>
+				/>
 				<Image
 					src="/img/dashboard-intro.png"
 					width={1200}
@@ -120,25 +119,23 @@ const Intro = () => {
 const Lead = () => (
 	<section className="my-40 xl:my-52">
 		<div className="container">
-			<motion.h2
+			<motion.div
 				initial={{ x: -100, opacity: 0 }}
 				whileInView={{ x: 0, opacity: 1 }}
 				viewport={{ once: true }}
 				transition={transition}
-				className={classNames(
-					"text-6xl leading-tight mb-12",
-					"text-transparent bg-clip-text bg-gradient-to-r from-danger-300 to-danger-200"
-				)}
 			>
-				Fast. <br />
-				Blazingly, fast lead processing.
-			</motion.h2>
+				<Title as="h2" color="red" className="mb-12">
+					Fast. <br />
+					Blazingly, fast lead processing.
+				</Title>
+			</motion.div>
 			<motion.p
 				initial={{ x: 100, opacity: 0 }}
 				whileInView={{ x: 0, opacity: 1 }}
 				viewport={{ once: true }}
 				transition={transition}
-				className="text-lg font-light tracking-wide max-w-2xl lg:ml-auto"
+				className="text-xl leading-normal font-light tracking-wide max-w-2xl lg:ml-auto"
 			>
 				Conduit helps real estate agents and loan officers to automate
 				repetitive actions with an unrivaled lead processing automation
@@ -370,20 +367,18 @@ const Crm = () => {
 const Focus = () => (
 	<section className="my-40 xl:my-52">
 		<div className="container">
-			<motion.h2
-				className={classNames(
-					"text-6xl leading-tight mb-12",
-					"text-transparent bg-clip-text bg-gradient-to-r from-danger-300 to-danger-200"
-				)}
+			<motion.div
 				initial={{ x: -100, opacity: 0 }}
 				whileInView={{ x: 0, opacity: 1 }}
 				viewport={{ once: true }}
 				transition={transition}
 			>
-				From chaos... focus on your leads, we focus on the rest.
-			</motion.h2>
+				<Title as="h2" color="red" className="mb-12">
+					From chaos... focus on your leads, we focus on the rest.
+				</Title>
+			</motion.div>
 			<motion.p
-				className="text-lg font-light tracking-wide max-w-2xl lg:ml-auto"
+				className="text-xl leading-normal font-light tracking-wide max-w-2xl lg:ml-auto"
 				initial={{ x: 100, opacity: 0 }}
 				whileInView={{ x: 0, opacity: 1 }}
 				viewport={{ once: true }}
@@ -514,17 +509,21 @@ const Features = () => {
 	return (
 		<section className="my-40 xl:my-52">
 			<div className="container">
-				<motion.h2
-					className={classNames(
-						"text-6xl max-w-fit ml-auto text-transparent bg-clip-text bg-gradient-to-r from-teal via-info to-primary"
-					)}
+				<motion.div
 					initial={{ x: 40, opacity: 0 }}
 					whileInView={{ x: 0, opacity: 1 }}
 					viewport={{ once: true }}
 					transition={transition}
 				>
-					#features
-				</motion.h2>
+					<Title
+						as="h2"
+						color="blue"
+						size="6xl"
+						className="max-w-fit ml-auto "
+					>
+						#features
+					</Title>
+				</motion.div>
 				<motion.div
 					className="mt-16 flex flex-wrap justify-center items-center gap-4"
 					variants={container}
@@ -569,27 +568,3 @@ const Features = () => {
 		</section>
 	);
 };
-
-const GetResults = () => (
-	<section className="relative my-40 xl:my-52 py-24 bg-skin-200">
-		<span className="radial radial--purpleBlue"></span>
-		<div className="container">
-			<div className="grid place-items-center gap-10 text-center">
-				<h3 className="text-7xl">
-					Get results.
-					<span className="block text-8xl font-bold">
-						Drive revenue.
-					</span>
-				</h3>
-				<Link
-					href="/pricing"
-					className={classNames(
-						"px-8 py-5 text-center text-xl tracking-wide text-skin-200 bg-light"
-					)}
-				>
-					Get Started Today
-				</Link>
-			</div>
-		</div>
-	</section>
-);

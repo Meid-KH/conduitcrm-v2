@@ -8,11 +8,18 @@ import { AiFillDollarCircle, AiFillCheckCircle } from "react-icons/ai";
 import { IoFlash } from "react-icons/io5";
 import { BsFillChatSquareTextFill } from "react-icons/bs";
 import { useUIContext } from "hooks/useUI";
+import { Url, UrlObject } from "url";
 
 interface IMenuItem {
 	label: string;
 	url: string;
 	className?: string;
+}
+interface ISubMenuItem {
+	icon: React.ReactNode;
+	title: string;
+	url: string;
+	description: string;
 }
 
 const RessourcesMegamenu = () => {
@@ -81,12 +88,13 @@ const RessourcesMegamenu = () => {
 };
 
 const FeaturesMegamenu = () => {
-	const FeaturesData = [
+	const FeaturesData: ISubMenuItem[] = [
 		{
 			icon: (
 				<FaUserAlt className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "CRM",
+			url: "/crm",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -95,6 +103,7 @@ const FeaturesMegamenu = () => {
 				<FaFilter className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Pipelines",
+			url: "/pipelines",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -103,6 +112,7 @@ const FeaturesMegamenu = () => {
 				<AiFillDollarCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Deals",
+			url: "#",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -111,6 +121,7 @@ const FeaturesMegamenu = () => {
 				<FaServer className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Dynamic Forms",
+			url: "#",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -119,6 +130,7 @@ const FeaturesMegamenu = () => {
 				<IoFlash className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Automation",
+			url: "#",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -127,6 +139,7 @@ const FeaturesMegamenu = () => {
 				<BsFillChatSquareTextFill className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Omnichannel Outreach",
+			url: "#",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -135,6 +148,7 @@ const FeaturesMegamenu = () => {
 				<AiFillCheckCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
 			),
 			title: "Tasks",
+			url: "#",
 			description:
 				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
 		},
@@ -148,7 +162,7 @@ const FeaturesMegamenu = () => {
 				{FeaturesData.map((item, i) => (
 					<Link
 						key={i}
-						href="#"
+						href={item.url}
 						className={classNames(
 							"flex gap-4 p-6 text-sm",
 							"border border-blueSea rounded-md",
@@ -228,7 +242,7 @@ const Header = () => {
 					className={classNames(sticky ? "opacity-0" : "opacity-100")}
 				/>
 			</Link>
-			<div className="container">
+			<div className="container__">
 				<nav className="flex items-center justify-between gap-6">
 					<div className="w-14">
 						<Link
@@ -281,7 +295,8 @@ const Header = () => {
 								href="/pricing"
 								className={classNames(
 									"px-9 py-4 font-medium",
-									"bg-primary border-2 border-primary hover:bg-skin-200"
+									"bg-primary border border-primary",
+									"hover:bg-skin-200 hover:border-skin-light"
 								)}
 							>
 								Register

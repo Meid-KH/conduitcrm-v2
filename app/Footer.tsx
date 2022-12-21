@@ -1,5 +1,6 @@
 import { LogoWhite } from "components/Logo";
 import Link from "next/link";
+import { classNames } from "utils/classNames";
 
 const companyLinks = [
 	{
@@ -158,32 +159,59 @@ const Footer = () => {
 	);
 
 	return (
-		<footer className="py-20 border-t border-light/20">
-			<div className="container">
-				<div className="grid grid-cols-2 gap-8">
-					<div className="space-y-8">
-						<div className="w-20 flex gap-6 items-center">
-							<LogoWhite className="flex-shrink-0" />
-							<span className="text-5xl font-black tracking-wider">
-								Conduit
-							</span>
+		<>
+			<Outro />
+			<footer className="py-20 border-t border-light/20">
+				<div className="container">
+					<div className="grid grid-cols-2 gap-8">
+						<div className="space-y-8">
+							<div className="w-20 flex gap-6 items-center">
+								<LogoWhite className="flex-shrink-0" />
+								<span className="text-5xl font-black tracking-wider">
+									Conduit
+								</span>
+							</div>
+							<p className="text-lg text-skin-light font-light tracking-wide leading-normal xl:max-w-sm">
+								The first all-in-one sales platform designed to
+								provide companies an easy way to access and
+								collaborate with the top 1% of sales talent,
+								on-demand.
+							</p>
 						</div>
-						<p className="text-lg text-skin-light font-light tracking-wide leading-normal xl:max-w-sm">
-							The first all-in-one sales platform designed to
-							provide companies an easy way to access and
-							collaborate with the top 1% of sales talent,
-							on-demand.
-						</p>
-					</div>
-					<div className="grid grid-cols-3 gap-10">
-						<Company />
-						<UsefulLinks />
-						<Social />
+						<div className="grid grid-cols-3 gap-10">
+							<Company />
+							<UsefulLinks />
+							<Social />
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</>
 	);
 };
+
+const Outro = () => (
+	<section className="relative my-40 xl:my-52 py-24 bg-skin-200">
+		<span className="radial radial--purpleBlue"></span>
+		<div className="container">
+			<div className="grid place-items-center gap-10 text-center">
+				<h3 className="text-7xl">
+					Get results.
+					<span className="block text-8xl font-bold">
+						Drive revenue.
+					</span>
+				</h3>
+				<Link
+					href="/pricing"
+					className={classNames(
+						"px-8 py-5 text-center text-xl tracking-wide text-skin-200 bg-light"
+					)}
+				>
+					Get Started Today
+				</Link>
+			</div>
+		</div>
+	</section>
+);
 
 export default Footer;

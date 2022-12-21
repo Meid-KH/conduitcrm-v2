@@ -28,7 +28,7 @@ export default function RootLayout({
 const AppDOM = ({ children }: { children: React.ReactNode }) => {
 	const { bodyLocked } = useUIContext();
 	return (
-		<html>
+		<html className="scroll-smooth">
 			<head />
 			<body
 				className={classNames(
