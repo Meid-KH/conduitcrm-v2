@@ -55,5 +55,8 @@ module.exports = {
 		require("@tailwindcss/line-clamp"),
 		require("@tailwindcss/forms"),
 		require("tailwindcss-nested-groups"),
+		require("@tailwindcss/forms")({
+			strategy: "class",
+		}),
 	],
 };

@@ -15,10 +15,11 @@
 		@apply absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
 		@apply w-screen h-screen overflow-x-hidden;
 		&::before {
+			@apply opacity-30;
 			@apply content-[""] blur-xl absolute inset-0;
 		}
 		&--purpleBlue::before {
-			@apply opacity-50;
+			// @apply opacity-40;
 			background: radial-gradient(
 					50% 50% at 50% 50%,
 					#f52858b6 0%,
@@ -36,7 +37,7 @@
 				);
 		}
 		&--purple::before {
-			@apply opacity-50;
+			// @apply opacity-40;
 			background: radial-gradient(
 					50% 50% at 50% 50%,
 					#4859f2 0%,
@@ -55,6 +56,15 @@
 				rgba(255, 0, 184, 0) 77.6%
 			);
 		}
+	}
+
+	// Forms
+	.form-input,
+	.form-textarea {
+		@apply w-full py-4 pl-0 bg-transparent;
+		@apply text-lg tracking-wide placeholder:text-base;
+		@apply border-0 border-b border-skin-light;
+		@apply focus:ring-0 focus:border-info;
 	}
 
 	// Table
