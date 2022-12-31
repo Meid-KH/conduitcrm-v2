@@ -23,6 +23,7 @@ module.exports = {
 				transparent: "transparent",
 				current: "currentColor",
 				primary: "#0C6DFFCF",
+				// primary: "#0070f3",
 				info: "#2496FF",
 				teal: "#20EDE1",
 				blueSea: "#243247",

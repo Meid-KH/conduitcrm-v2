@@ -5,8 +5,6 @@ const LogoLarge = ({ className = "" }: { className?: string }) => {
 		<>
 			<svg
 				className={classNames(className)}
-				width="174"
-				height="177"
 				viewBox="0 0 174 177"
 				fill="none"
 			>

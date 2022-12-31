@@ -3,7 +3,7 @@ import { classNames } from "utils/classNames";
 export default function page() {
 	return (
 		<div className="flex flex-col items-center justify-center py-2">
-			<main className="py-24 flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+			<article className="py-24 flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
 				<h1 className="text-6xl font-bold">
 					Welcome to <span className="text-primary">Conduit!</span>
 				</h1>
@@ -115,18 +115,11 @@ export default function page() {
 
 				<p className="mt-3 text-2xl">
 					Get started by editing{" "}
-					<code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+					<code className="rounded-md bg-skin-200 border p-3 font-mono text-lg">
 						app/**/*/.tsx
 					</code>
 				</p>
-			</main>
-
-			<footer className="flex h-24 w-full items-center justify-center border-t">
-				<p>
-					Powered by{" "}
-					<strong className="text-danger-300">Conduit</strong>
-				</p>
-			</footer>
+			</article>
 		</div>
 	);
 }

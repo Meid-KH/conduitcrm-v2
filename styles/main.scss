@@ -9,14 +9,15 @@
 }
 @layer components {
 	.container {
-		@apply mx-auto;
+		@apply px-4;
 	}
 	.radial {
 		@apply absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
 		@apply w-screen h-screen overflow-x-hidden;
 		&::before {
-			@apply opacity-30;
-			@apply content-[""] blur-xl absolute inset-0;
+			@apply w-[60vh] h-[60vh] md:w-[100vh] md:h-screen opacity-30;
+			@apply content-[""] blur-xl absolute;
+			@apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 		}
 		&--purpleBlue::before {
 			// @apply opacity-40;
@@ -68,21 +69,60 @@
 	}
 
 	// Table
+	.table__wrapper {
+		@apply overflow-x-auto pt-16 pb-8 -mx-2;
+		@media (max-width: 768px) {
+			mask-image: linear-gradient(
+				to right,
+				transparent,
+				black 20px,
+				black 90%,
+				transparent
+			);
+			-webkit-mask-image: linear-gradient(
+				to right,
+				transparent,
+				black 20px,
+				black 90%,
+				transparent
+			);
+		}
+	}
 	table {
 		@apply w-full;
 		th,
 		td {
-			@apply px-4 py-10 text-lg font-normal text-center;
+			@apply px-3 lg:px-4 py-3.5 lg:py-10;
+			@apply text-sm lg:text-lg font-normal text-center;
+		}
+		th:not(:first-child) {
+			@apply min-w-[150px];
 		}
 		td {
-			@apply px-6;
+			@apply lg:px-6;
+			&:first-child {
+				@apply sticky left-0 backdrop-blur bg-skin-200 bg-opacity-50 lg:bg-transparent;
+				@apply text-left;
+			}
 		}
 	}
 
 	@layer utilities {
 		.bg-curve {
 			&--toLeft {
-				clip-path: polygon(0 8%, 100% 0, 100% 100%, 0% 100%);
+				clip-path: polygon(0 2%, 100% 0, 100% 100%, 0% 100%);
+				@media (min-width: 640px) {
+					clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
+				}
+				@media (min-width: 768px) {
+					clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+				}
+				@media (min-width: 1024px) {
+					clip-path: polygon(0 6%, 100% 0, 100% 100%, 0% 100%);
+				}
+				@media (min-width: 1280px) {
+					clip-path: polygon(0 7%, 100% 0, 100% 100%, 0% 100%);
+				}
 			}
 		}
 	}

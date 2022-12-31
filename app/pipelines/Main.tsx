@@ -1,8 +1,8 @@
 "use client";
-import { Title } from "components/ui";
+import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import { Section, Title } from "components/ui";
 import { transition } from "utils/ui";
 
 const features = [
@@ -25,13 +25,16 @@ const features = [
 
 const Main = () => {
 	return (
-		<section className="bg-curve--toLeft bg-skin-light text-skin-100 py-60">
+		<Section className="bg-curve--toLeft bg-skin-light text-skin-100 my-28 py-40 lg:py-52">
 			<div className="container">
-				<div className="space-y-14 lg:space-y-20 xl:space-y-32">
+				<div className="space-y-16 lg:space-y-20 xl:space-y-32">
 					{features.map((item, i) => (
-						<div key={i} className="flex gap-8 xl:gap-16">
+						<div
+							key={i}
+							className="flex flex-col md:flex-row gap-8 gap-y-6 xl:gap-16"
+						>
 							<motion.div
-								className="flex-1"
+								className="sm:flex-1"
 								initial={{ x: -100, opacity: 0 }}
 								whileInView={{ x: 0, opacity: 1 }}
 								viewport={{ once: true }}
@@ -40,20 +43,15 @@ const Main = () => {
 								<span className="inline-block text-primary uppercase mb-2">
 									{item.tag}
 								</span>
-								<Title
-									as="h3"
-									color="current"
-									size="5xl"
-									className="font-extrabold mb-8"
-								>
+								<h3 className="font-extrabold text-3xl lg:text-5xl mb-4 lg:mb-8">
 									{item.title}
-								</Title>
+								</h3>
 								<p className="text-lg tracking-wider leading-relaxed opacity-70">
 									{item.description}
 								</p>
 							</motion.div>
 							<motion.div
-								className="flex-1"
+								className="sm:flex-1"
 								initial={{ x: 100, opacity: 0 }}
 								whileInView={{ x: 0, opacity: 1 }}
 								viewport={{ once: true }}
@@ -75,7 +73,7 @@ const Main = () => {
 					))}
 				</div>
 			</div>
-		</section>
+		</Section>
 	);
 };
 

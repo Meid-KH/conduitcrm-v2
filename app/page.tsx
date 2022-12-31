@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import { Waves } from "components/Waves";
 import { motion } from "framer-motion";
-import { Title } from "components/ui";
+import { Section, Title } from "components/ui";
 
 export default function page() {
 	return (
@@ -40,8 +40,8 @@ const Intro = () => {
 	}, []);
 
 	return (
-		<section className="relative my-40">
-			<Waves className="absolute inset-x-0 top-1/4 opacity-70" />
+		<Section>
+			<Waves className="absolute inset-x-0 top-1/2 sm:top-1/3 lg:top-1/4 opacity-70 w-auto h-[40vh] lg:h-auto" />
 			<div className="container">
 				<div className="relative text-center space-y-24">
 					<motion.div
@@ -84,7 +84,7 @@ const Intro = () => {
 				</div>
 			</div>
 			<motion.div
-				className="relative mt-40"
+				className="relative mt-24 xl:mt-40 px-4"
 				initial={{ y: 40, opacity: 0 }}
 				whileInView={{
 					y: 0,
@@ -112,12 +112,12 @@ const Intro = () => {
 					alt="The most advanced platform for the Real Estate industry"
 				/>
 			</motion.div>
-		</section>
+		</Section>
 	);
 };
 
 const Lead = () => (
-	<section className="my-40 xl:my-52">
+	<Section>
 		<div className="container">
 			<motion.div
 				initial={{ x: -100, opacity: 0 }}
@@ -141,9 +141,9 @@ const Lead = () => (
 				repetitive actions with an unrivaled lead processing automation
 				engine.
 			</motion.p>
-			<div className="mt-28 relative">
+			<div className="mt-16 lg:mt-28 relative">
 				<span className="radial radial--purple"></span>
-				<div className="grid grid-cols-3 gap-5">
+				<div className="grid sm:grid-cols-4 lg:grid-cols-3 gap-5">
 					<motion.div
 						initial={{ y: 60, opacity: 0 }}
 						whileInView={{
@@ -153,7 +153,10 @@ const Lead = () => (
 						}}
 						viewport={{ once: true }}
 						transition={transition}
-						className={classNames("p-10 rounded-lg bg-skin-200")}
+						className={classNames(
+							"p-6 md:p-8 lg:p-10 rounded-lg bg-skin-200",
+							"col-span-2 lg:col-span-1"
+						)}
 					>
 						<h3
 							className={classNames(
@@ -177,7 +180,7 @@ const Lead = () => (
 						viewport={{ once: true }}
 						transition={transition}
 						className={classNames(
-							"p-10 rounded-lg bg-skin-200",
+							"p-6 md:p-8 lg:p-10 rounded-lg bg-skin-200",
 							"col-span-2 row-span-2"
 						)}
 					>
@@ -221,7 +224,10 @@ const Lead = () => (
 						}}
 						viewport={{ once: true }}
 						transition={transition}
-						className={classNames("p-10 rounded-lg bg-skin-200")}
+						className={classNames(
+							"p-6 md:p-8 lg:p-10 rounded-lg bg-skin-200",
+							"col-span-2 lg:col-span-1"
+						)}
 					>
 						<h3
 							className={classNames(
@@ -242,7 +248,7 @@ const Lead = () => (
 				</div>
 			</div>
 		</div>
-	</section>
+	</Section>
 );
 
 const Crm = () => {
@@ -305,31 +311,31 @@ const Crm = () => {
 		},
 	};
 	return (
-		<section className="my-40 xl:my-52">
-			<div className="container">
-				<div className="grid grid-cols-2 gap-12">
-					<div className="-mt-8">
+		<Section>
+			<div className="container md:max-w-full">
+				<div className="grid md:grid-cols-2 gap-12">
+					<div className="-mt-8 xl:pl-24">
 						{crmFeatures.map((item, i) => (
 							<section
 								key={i}
 								className={classNames(
-									"py-8 border-b border-violet cursor-pointer",
+									"py-6 md:py-8 border-b border-violet cursor-pointer",
 									"transition-all duration-300"
 								)}
 								onMouseOver={() => setSelectedFeature(item)}
 							>
-								<div
+								<h3
 									className={classNames(
-										"text-3xl font-light",
+										"text-2xl md:text-3xl font-light w-fit",
 										item.slug === selectedFeature.slug &&
-											"font-medium__ text-transparent bg-clip-text bg-gradient-to-r from-teal via-info to-primary"
+											"font-medium__ text-transparent bg-clip-text bg-gradient-to-r from-teal to-info"
 									)}
 								>
 									{item?.title}
-								</div>
-								<motion.p
+								</h3>
+								<motion.div
 									className={classNames(
-										"mt-4 text-lg font-light tracking-wide",
+										"mt-4 space-y-3",
 										item.slug !== selectedFeature.slug &&
 											"mt-0"
 									)}
@@ -341,31 +347,42 @@ const Crm = () => {
 											: "hide"
 									}
 								>
-									{item?.description}
-								</motion.p>
+									<p className="text-lg font-light tracking-wide">
+										{item?.description}
+									</p>
+									<Image
+										src={`/img/${selectedFeature.image}`}
+										width="380"
+										height="380"
+										alt="Comprehensive Crm"
+										className="object-cover md:hidden"
+									/>
+								</motion.div>
 							</section>
 						))}
 					</div>
-					<div className="">
-						<div className="ml-auto translate-x-1/4">
-							<code>{selectedFeature.image}</code>
+					<div className="hidden md:block">
+						<div className="ml-auto translate-x-4 xl:translate-x-1/4__">
+							<code className="block text-center">
+								{selectedFeature.image}
+							</code>
 							<Image
 								src={`/img/${selectedFeature.image}`}
 								width="500"
 								height="500"
 								alt="Comprehensive Crm"
-								className="object-cover"
+								className="object-cover ml-auto"
 							/>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+		</Section>
 	);
 };
 
 const Focus = () => (
-	<section className="my-40 xl:my-52">
+	<Section>
 		<div className="container">
 			<motion.div
 				initial={{ x: -100, opacity: 0 }}
@@ -390,7 +407,7 @@ const Focus = () => (
 				single detail.
 			</motion.p>
 		</div>
-	</section>
+	</Section>
 );
 
 const Testimonial = () => {
@@ -416,7 +433,7 @@ const Testimonial = () => {
 		},
 	];
 	return (
-		<section className="my-40 xl:my-52">
+		<Section>
 			<motion.div
 				className="container"
 				initial={{ y: 80 }}
@@ -438,20 +455,21 @@ const Testimonial = () => {
 					{testimonialData.map((item, i) => (
 						<SwiperSlide key={i}>
 							<blockquote className="space-y-10__">
-								<span className="block text-[20rem] leading-[0.6] text-[#5A7690] -mb-28">
+								<span className="block text-[16rem] lg:text-[20rem] leading-[0.6] text-[#5A7690] -mb-20 lg:-mb-28">
 									“
 								</span>
-								<p className="text-5xl font-medium leading-tight">
+								<p className="text-2xl lg:text-3xl xl:text-4xl font-medium !leading-normal">
 									{item.text}
 								</p>
 								<div className="flex items-center gap-4 mt-10">
-									<Image
-										src="/img/jane-smith.png"
-										width="100"
-										height="100"
-										alt="Jane Smith"
-										className="flex-shring-0"
-									/>
+									<span className="flex-shring-0 w-16 lg:w-24 h-16 lg:h-24">
+										<Image
+											src="/img/jane-smith.png"
+											width="100"
+											height="100"
+											alt="Jane Smith"
+										/>
+									</span>
 									<div className="space-y-1.5">
 										<div className="text-xl tracking-wide font-bold">
 											{item.author.name}
@@ -466,28 +484,28 @@ const Testimonial = () => {
 						</SwiperSlide>
 					))}
 				</Swiper>
-				<div className="relative z-20 flex gap-4 items-center justify-end">
+				<div className="relative z-20 flex gap-4 items-center justify-end mt-2">
 					<button
 						className={classNames(
-							"w-12 h-12 rounded-full bg-light text-skin-100",
+							"w-8 lg:w-12 h-8 lg:h-12 rounded-full bg-light text-skin-100",
 							"flex-shrink-0 grid place-items-center"
 						)}
 						onClick={() => swiperRef.current?.slidePrev()}
 					>
-						<FiChevronLeft className="w-9 h-9" />
+						<FiChevronLeft className="w-6 lg:w-9 h-6 lg:h-9" />
 					</button>
 					<button
 						className={classNames(
-							"w-12 h-12 rounded-full bg-light text-skin-100",
+							"w-8 lg:w-12 h-8 lg:h-12 rounded-full bg-light text-skin-100",
 							"flex-shrink-0 grid place-items-center"
 						)}
 						onClick={() => swiperRef.current?.slideNext()}
 					>
-						<FiChevronRight className="w-9 h-9" />
+						<FiChevronRight className="w-6 lg:w-9 h-6 lg:h-9" />
 					</button>
 				</div>
 			</motion.div>
-		</section>
+		</Section>
 	);
 };
 
@@ -507,7 +525,7 @@ const Features = () => {
 		show: { opacity: 1, y: 0, scale: 1 },
 	};
 	return (
-		<section className="my-40 xl:my-52">
+		<Section>
 			<div className="container">
 				<motion.div
 					initial={{ x: 40, opacity: 0 }}
@@ -550,7 +568,8 @@ const Features = () => {
 						<motion.span
 							key={i}
 							className={classNames(
-								"px-8 py-3 tracking-wide uppercase bg-primary border-2 border-primary",
+								"px-6 sm:px-8 py-2 sm:py-3 grow",
+								"text-sm sm:text-base text-center tracking-wider uppercase bg-primary border-2 border-primary",
 								"rounded-full cursor-pointer transition",
 								"hover:bg-skin-100 hover:border-skin-100"
 							)}
@@ -565,6 +584,6 @@ const Features = () => {
 					))}
 				</motion.div>
 			</div>
-		</section>
+		</Section>
 	);
 };

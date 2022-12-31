@@ -1,8 +1,8 @@
-import { Title } from "components/ui";
+import { Section, Title } from "components/ui";
 import { Waves } from "components/Waves";
 const Intro = () => {
 	return (
-		<section className="relative py-60">
+		<Section>
 			<span
 			// initial={{ opacity: 0 }}
 			// whileInView={{
@@ -12,9 +12,9 @@ const Intro = () => {
 			// viewport={{ once: true }}
 			// transition={transition}
 			>
-				<span className="translate-y-1/2__ radial radial--purpleBlue opacity-50" />
+				<span className="translate-y-0 lg:-translate-y-72 radial radial--purpleBlue opacity-50" />
 			</span>
-			<Waves className="max-w-full absolute inset-x-0 bottom-0 translate-y-2/3 opacity-70" />
+			<Waves className="absolute inset-x-0 top-2/3 sm:top-1/3 lg:top-1/4 opacity-70 w-auto h-[40vh] lg:h-auto" />
 			<div className="container">
 				<Title color="red" size="5xl" dir="center" className="mb-6">
 					Supercharge your investment. Start free today.
@@ -25,7 +25,7 @@ const Intro = () => {
 					manage your contacts.
 				</p>
 			</div>
-		</section>
+		</Section>
 	);
 };
 

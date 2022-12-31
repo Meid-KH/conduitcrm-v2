@@ -78,7 +78,7 @@ const socialLinks = [
 const Footer = () => {
 	const Company = () => (
 		<div className="space-y-5">
-			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20 sm:w-max">
 				Company
 			</h4>
 			<ul className="space-y-3">
@@ -109,7 +109,7 @@ const Footer = () => {
 
 	const UsefulLinks = () => (
 		<div className="space-y-5">
-			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20 sm:w-max">
 				Useful Links
 			</h4>
 			<ul className="space-y-3">
@@ -140,8 +140,8 @@ const Footer = () => {
 
 	const Social = () => (
 		<div className="space-y-5">
-			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20">
-				Social
+			<h4 className="text-2xl font-bold tracking-wide pb-3 border-b border-light/20 sm:w-max">
+				Social Links
 			</h4>
 			<ul className="space-y-3">
 				{socialLinks.map((item, i) => (
@@ -161,43 +161,48 @@ const Footer = () => {
 	return (
 		<>
 			<Outro />
-			<footer className="py-20 border-t border-light/20">
+			<footer className="pt-12 lg:pt-20 border-t border-light/20">
 				<div className="container">
-					<div className="grid grid-cols-2 gap-8">
-						<div className="space-y-8">
+					<div className="grid grid-cols-12 gap-8 gap-y-16">
+						<div className="col-span-full lg:col-span-4 xl:col-span-6 space-y-8">
 							<div className="w-20 flex gap-6 items-center">
 								<LogoWhite className="flex-shrink-0" />
 								<span className="text-5xl font-black tracking-wider">
 									Conduit
 								</span>
 							</div>
-							<p className="text-lg text-skin-light font-light tracking-wide leading-normal xl:max-w-sm">
+							<p className="text-lg font-light tracking-wide leading-normal xl:max-w-sm">
 								The first all-in-one sales platform designed to
 								provide companies an easy way to access and
 								collaborate with the top 1% of sales talent,
 								on-demand.
 							</p>
 						</div>
-						<div className="grid grid-cols-3 gap-10">
+						<div className="col-span-full lg:col-span-8 xl:col-span-6 grid sm:grid-cols-2 md:grid-cols-3 gap-10 pt-6">
 							<Company />
 							<UsefulLinks />
 							<Social />
 						</div>
 					</div>
 				</div>
+				<section className="py-8 mt-8 lg:py-10 lg:mt-10 border-t border-light/20">
+					<p className="text-sm tracking-wide text-center">
+						All rights reserved @ ConduitCRM LLC
+					</p>
+				</section>
 			</footer>
 		</>
 	);
 };
 
 const Outro = () => (
-	<section className="relative my-40 xl:my-52 py-24 bg-skin-200">
+	<section className="relative my-20 md:my-40 xl:my-52 py-24 bg-skin-200">
 		<span className="radial radial--purpleBlue"></span>
 		<div className="container">
 			<div className="grid place-items-center gap-10 text-center">
-				<h3 className="text-7xl">
+				<h3 className="text-5xl md:text-6xl lg:text-7xl leading-tight">
 					Get results.
-					<span className="block text-8xl font-bold">
+					<span className="text-light block lg:text-8xl font-extrabold">
 						Drive revenue.
 					</span>
 				</h3>

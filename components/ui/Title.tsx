@@ -32,16 +32,16 @@ const Title: React.FC<{
 	const colors: { [key: string]: string } = {
 		current: "text-current",
 		red: "text-transparent bg-clip-text bg-gradient-to-r from-danger-300 to-danger-200",
-		blue: "font-medium__ text-transparent bg-clip-text bg-gradient-to-r from-teal via-info to-primary",
+		blue: "text-transparent bg-clip-text bg-gradient-to-r from-teal via-info to-primary",
 		whitePurple:
 			"text-transparent bg-clip-text bg-gradient-to-r from-light via-purple to-danger-200",
 	};
 	return (
 		<Tag
 			className={classNames(
-				"leading-tight font-medium tracking-wide",
+				"!leading-tight font-medium tracking-wide w-fit",
 				dir && `text-${dir}`,
-				`text-${size}`,
+				`text-5xl md:text-6xl lg:text-${size}`,
 				colors[color],
 				className
 			)}

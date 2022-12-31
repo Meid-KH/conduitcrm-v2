@@ -5,23 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { classNames } from "utils/classNames";
 import { transition } from "utils/ui";
-import { Title } from "components/ui";
+import { Section, Title } from "components/ui";
 import { WaveSm } from "components/Waves";
 
 const Intro = () => {
 	return (
 		<>
-			<section className="relative overflow-x-hidden___ py-60">
-				<WaveSm className="max-w-full absolute inset-y-0 left-0 opacity-70" />
-				<div className="relative flex justify-center gap-32 py-4">
+			<Section>
+				<WaveSm className="h-[60%] -translate-y-16 md:h-auto lg:translate-y-0 absolute inset-y-0 left-0 opacity-70" />
+				<div className="relative grid md:grid-cols-12 gap-y-24 gap-8 lg:gap-12 2xl:gap-32 py-4 px-4">
 					<motion.div
-						className="flex-1 max-w-4xl"
+						className="col-span-full md:col-span-8 lg:col-span-6 max-w-4xl"
 						initial={{ x: -100, opacity: 0 }}
 						whileInView={{ x: 0, opacity: 1 }}
 						viewport={{ once: true }}
 						transition={transition}
 					>
-						<div className="lg:pl-14 xl:pl-28">
+						<div className="sm:pl-4 md:pl-6 lg:pr-0 lg:pl-12 2xl:pl-28">
 							<Title
 								as="h1"
 								// size="7xl"
@@ -35,15 +35,14 @@ const Intro = () => {
 								hundreds of sources automatically ingested
 								through Zapier or CSV files.
 							</p>
-							<div className="flex gap-8">
+							<div className="flex flex-wrap gap-6 lg:gap-8 mt-10 lg:mt-20">
 								<Link
 									href="/pricing"
 									className={classNames(
-										"flex-1 px-8 py-5 text-center text-2xl tracking-wide",
-										"text-light bg-primary/80",
+										"sm:flex-1 grow px-4 py-5 bg-primary/80",
+										"text-light text-center text-lg xl:text-2xl tracking-wide",
 										"border border-transparent",
-										"hover:bg-skin-200 hover:border-skin-light",
-										"mt-20"
+										"hover:bg-skin-200 hover:border-skin-light"
 									)}
 								>
 									Get started for free
@@ -51,11 +50,11 @@ const Intro = () => {
 								<Link
 									href="/pricing"
 									className={classNames(
-										"flex-1 px-8 py-5 text-center text-2xl tracking-wide",
-										"text-light bg-gradient-to-r from-skin-200 to bg-skin-100",
+										"sm:flex-1 grow px-4 py-5",
+										"text-light text-center text-lg xl:text-2xl tracking-wide",
+										"bg-gradient-to-r from-skin-200 to-skin-100",
 										"border border-transparent",
-										"hover:bg-skin-200 hover:border-skin-light",
-										"mt-20"
+										"hover:bg-skin-200 hover:border-skin-light"
 									)}
 								>
 									Read the docs
@@ -64,7 +63,7 @@ const Intro = () => {
 						</div>
 					</motion.div>
 					<motion.div
-						className="flex-1 relative"
+						className="col-span-full md:col-span-4 lg:col-span-6 relative"
 						initial={{ x: 200, opacity: 0 }}
 						whileInView={{ x: 0, opacity: 1 }}
 						viewport={{ once: true }}
@@ -79,21 +78,21 @@ const Intro = () => {
 							viewport={{ once: true }}
 							transition={transition}
 						>
-							<span className="-translate-x-1/2 radial radial--blue" />
+							<span className="-translate-y-2/3 md:-translate-y-1/3 xl:-translate-x-3/4 radial radial--blue"></span>
 						</motion.span>
 						<Image
-							src="/img/crm-intro.png"
+							src="/img/pipeline-intro.png"
 							width="950"
 							height="654"
 							alt="Crm Dashboard"
 							priority
 							quality={100}
-							className="relative translate-x-8 ml-auto"
+							className="relative ml-auto h-full lg:h-auto object-cover object-left md:translate-x-4"
 						/>
 					</motion.div>
 				</div>
-			</section>
-			<div className="section pb-32">
+			</Section>
+			<div>
 				<div className="container">
 					<motion.div
 						initial={{ x: -100, opacity: 0 }}

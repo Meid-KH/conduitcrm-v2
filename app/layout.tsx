@@ -34,12 +34,14 @@ const AppDOM = ({ children }: { children: React.ReactNode }) => {
 				className={classNames(
 					roboto.variable,
 					"font-main",
-					"relative text-light bg-gradient-to-b from-skin-100 to-skin-200"
+					"relative text-light/90 bg-gradient-to-b from-skin-100 to-skin-200"
 					// bodyLocked && "overflow-hidden"
 				)}
 			>
 				<Header />
-				<main className={classNames("min-h-screen")}>{children}</main>
+				<main className={classNames("min-h-screen overflow-x-hidden")}>
+					{children}
+				</main>
 				<Footer />
 				<BackDrop />
 			</body>

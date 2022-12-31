@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, FormEvent } from "react";
 import { HiOutlineCalendar, HiArrowRight } from "react-icons/hi";
-import { Title } from "components/ui";
+import { Section, Title } from "components/ui";
 import { WaveSm } from "components/Waves";
 import { classNames } from "utils/classNames";
 import Arrow from "./Arrow";
@@ -30,8 +30,8 @@ const page = () => {
 };
 
 const Intro = () => (
-	<section className="relative py-48">
-		<WaveSm className="max-w-full absolute inset-y-0 left-0 opacity-70" />
+	<Section>
+		<WaveSm className="h-[80vh] -translate-y-24 -left-2/3 md:h-auto lg:translate-y-0 absolute inset-y-0 md:left-0 opacity-70" />
 		<div className="relative container">
 			<Title as="h1" color="red" size="7xl">
 				We love to hear from you,
@@ -61,7 +61,7 @@ const Intro = () => (
 				</span>
 			</div>
 		</div>
-	</section>
+	</Section>
 );
 
 const ContactForm = () => {
@@ -127,7 +127,7 @@ const ContactForm = () => {
 								className={classNames(
 									"text-lg tracking-wide font-medium px-20 py-5",
 									"bg-primary border border-primary",
-									"hover:bg-skin-200 hover:border-skin-light"
+									"hover:bg-skin-200 hover:border-skin-light w-full md:w-auto"
 								)}
 							>
 								Submit
@@ -174,7 +174,7 @@ const FormGroup: FC<FormControlProps> = ({
 			</span>
 			<div className="flex-1">
 				<label className="flex flex-col gap-2">
-					<span className="text-3xl font-medium tracking-wide leading-normal">
+					<span className="text-2xl md:text-3xl font-medium tracking-wide leading-normal">
 						{label}
 						{required && (
 							<sup className="ml-2 text-3xl text-[#CC23F6] -top-[0.2em]">
@@ -182,7 +182,9 @@ const FormGroup: FC<FormControlProps> = ({
 							</sup>
 						)}
 					</span>
-					<small className="text-lg">{description}</small>
+					<small className="text-base md:text-lg opacity-75">
+						{description}
+					</small>
 				</label>
 				{type === "textarea" ? (
 					<textarea

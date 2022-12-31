@@ -1,14 +1,15 @@
 import Intro from "./Intro";
 import Main from "./Main";
+import { Section } from "components/ui";
 
 const page = () => {
 	return (
 		<>
 			<Intro />
 			<Main />
-			<section className="py-52">
+			<Section>
 				<div className="container"></div>
-			</section>
+			</Section>
 		</>
 	);
 };

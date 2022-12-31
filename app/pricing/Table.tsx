@@ -1,3 +1,4 @@
+import { Section } from "components/ui";
 import React, { FC } from "react";
 import { FiCheck } from "react-icons/fi";
 import { VscClose } from "react-icons/vsc";
@@ -5,9 +6,9 @@ import { classNames } from "utils/classNames";
 
 const Table = () => {
 	return (
-		<section className="relative pb-12">
-			<div className="container">
-				<div className="overflow-x-auto pt-12 ">
+		<Section className="pb-12">
+			<div className="px-4 container xl:max-w-7xl">
+				<div className="table__wrapper">
 					<table className="w-full">
 						<thead>
 							<tr>
@@ -21,7 +22,9 @@ const Table = () => {
 											<small className="text-2xl">
 												$
 											</small>
-											<span className="text-6xl">0</span>
+											<span className="text-4xl lg:text-6xl">
+												0
+											</span>
 										</div>
 										<p className="text-sm tracking-wide leading-relaxed">
 											For professionals looking to dive in
@@ -30,7 +33,7 @@ const Table = () => {
 										</p>
 										<a
 											className={classNames(
-												"inline-block px-6 py-3 text-base tracking-wide",
+												"block px-6 lg:px-6 py-3 text-base tracking-wide",
 												"bg-primary border border-primary hover:bg-skin-200 hover:border-skin-light",
 												"mt-4"
 											)}
@@ -52,8 +55,10 @@ const Table = () => {
 											<small className="text-2xl">
 												$
 											</small>
-											<span className="text-6xl">11</span>
-											<span className="text-xl text-left opacity-60">
+											<span className="text-4xl lg:text-6xl">
+												11
+											</span>
+											<span className="text-base lg:text-xl text-left opacity-60 leading-none">
 												user / <br /> month
 											</span>
 										</div>
@@ -64,7 +69,7 @@ const Table = () => {
 										</p>
 										<a
 											className={classNames(
-												"inline-block px-6 py-3 text-base tracking-wide",
+												"inline-block px-5 lg:px-6 py-3 text-base tracking-wide",
 												"bg-primary border border-primary hover:bg-skin-200 hover:border-skin-light",
 												"mt-4"
 											)}
@@ -87,8 +92,10 @@ const Table = () => {
 											<small className="text-2xl">
 												$
 											</small>
-											<span className="text-6xl">29</span>
-											<span className="text-xl text-left opacity-60">
+											<span className="text-4xl lg:text-6xl">
+												29
+											</span>
+											<span className="text-base lg:text-xl text-left opacity-60 leading-none">
 												user / <br /> month
 											</span>
 										</div>
@@ -99,7 +106,7 @@ const Table = () => {
 										</p>
 										<a
 											className={classNames(
-												"inline-block px-6 py-3 text-base tracking-wide",
+												"inline-block px-5 lg:px-6 py-3 text-base tracking-wide",
 												"bg-primary border border-primary hover:bg-skin-200 hover:border-skin-light",
 												"mt-4"
 											)}
@@ -121,8 +128,10 @@ const Table = () => {
 											<small className="text-2xl">
 												$
 											</small>
-											<span className="text-6xl">39</span>
-											<span className="text-xl text-left opacity-60">
+											<span className="text-4xl lg:text-6xl">
+												39
+											</span>
+											<span className="text-base lg:text-xl text-left opacity-60 leading-none">
 												user / <br /> month
 											</span>
 										</div>
@@ -133,7 +142,7 @@ const Table = () => {
 										</p>
 										<a
 											className={classNames(
-												"inline-block px-6 py-3 text-base tracking-wide",
+												"inline-block px-5 lg:px-6 py-3 text-base tracking-wide",
 												"bg-primary border border-primary hover:bg-skin-200 hover:border-skin-light",
 												"mt-4"
 											)}
@@ -152,7 +161,9 @@ const Table = () => {
 											Enterprise
 										</span>
 										<div className="font-light flex gap-2 justify-center items-end">
-											<span className="text-6xl">-</span>
+											<span className="text-4xl lg:text-6xl">
+												-
+											</span>
 										</div>
 										<p className="text-sm tracking-wide leading-relaxed">
 											For professionals looking to dive in
@@ -161,7 +172,7 @@ const Table = () => {
 										</p>
 										<a
 											className={classNames(
-												"inline-block px-6 py-3 text-base tracking-wide",
+												"inline-block px-5 lg:px-6 py-3 text-base tracking-wide",
 												"bg-primary border border-primary hover:bg-skin-200 hover:border-skin-light",
 												"mt-4"
 											)}
@@ -188,83 +199,83 @@ const Table = () => {
 							<tr>
 								<td>Tasks</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
-								</td>
-							</tr>
-
-							<tr>
-								<td>Feature</td>
-								<td>
-									<VscClose className="mx-auto w-9 h-9 opacity-40" />
-								</td>
-								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
-								</td>
-								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
-								</td>
-								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
-								</td>
-								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 							</tr>
 
 							<tr>
 								<td>Feature</td>
 								<td>
-									<VscClose className="mx-auto w-9 h-9 opacity-40" />
+									<VscClose className="mx-auto w-6 lg:w-9 h-6 lg:h-9 opacity-40" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 							</tr>
 
 							<tr>
 								<td>Feature</td>
 								<td>
-									<VscClose className="mx-auto w-9 h-9 opacity-40" />
+									<VscClose className="mx-auto w-6 lg:w-9 h-6 lg:h-9 opacity-40" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 								<td>
-									<FiCheck className="mx-auto w-9 h-9" />
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
+								</td>
+							</tr>
+
+							<tr>
+								<td>Feature</td>
+								<td>
+									<VscClose className="mx-auto w-6 lg:w-9 h-6 lg:h-9 opacity-40" />
+								</td>
+								<td>
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
+								</td>
+								<td>
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
+								</td>
+								<td>
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
+								</td>
+								<td>
+									<FiCheck className="mx-auto w-6 lg:w-9 h-6 lg:h-9" />
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-		</section>
+		</Section>
 	);
 };
 
@@ -277,7 +288,7 @@ const Tooltip: FC<{
 			"absolute bottom-full min-w-[160px] bg-skin-200 text-center px-6 py-3 rounded-xl",
 			"-translate-y-1/2",
 			"after:content-[''] after:w-6 after:h-6 after:bg-skin-200 after:rounded",
-			"after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:-translate-y-[calc(50%+0.25rem)] after:rotate-45",
+			"after:absolute after:-z-10 after:top-full after:left-1/2 after:-translate-x-1/2 after:-translate-y-[calc(50%+0.25rem)] after:rotate-45",
 			className
 		)}
 	>
