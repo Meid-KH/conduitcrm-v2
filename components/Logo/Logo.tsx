@@ -2,10 +2,10 @@ const Logo = ({ className = "" }: { className?: string }) => {
 	return (
 		<>
 			<svg className={className} viewBox="0 0 52 54" fill="none">
-				<rect width="52" height="54" fill="url(#pattern0)" />
+				<rect width="52" height="54" fill="url(#LogoPattern)" />
 				<defs>
 					<pattern
-						id="pattern0"
+						id="LogoPattern"
 						patternContentUnits="objectBoundingBox"
 						width="1"
 						height="1"

@@ -232,7 +232,7 @@ const Header = () => {
 	return (
 		<header
 			className={classNames(
-				"z-30 px-4 xl:px-8 transition-all",
+				"z-30 px-4 xl:px-8 transition__",
 				sticky
 					? "py-4 xl:py-6 sticky top-0 bg-skin-200/90 backdrop-blur-lg"
 					: "relative py-6 xl:py-10"
@@ -255,7 +255,7 @@ const Header = () => {
 						<Link
 							href="/"
 							className={classNames(
-								"transition duration-75",
+								"block transition duration-75",
 								sticky ? "opacity-100" : "opacity-0"
 							)}
 						>
@@ -386,6 +386,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 		return () => {
 			unLockBody();
 			clearAllBodyScrollLocks();
+			enableBodyScroll(ref.current);
 			// Unbind the event listener on clean up
 			document.removeEventListener("click", handleClickOutside);
 		};

@@ -13,11 +13,11 @@ const LogoLarge = ({ className = "" }: { className?: string }) => {
 					y="-36"
 					width="206"
 					height="213"
-					fill="url(#pattern0)"
+					fill="url(#LogoLargePattern)"
 				/>
 				<defs>
 					<pattern
-						id="pattern0"
+						id="LogoLargePattern"
 						patternContentUnits="objectBoundingBox"
 						width="1"
 						height="1"
