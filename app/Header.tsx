@@ -391,7 +391,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 			// clearAllBodyScrollLocks();
 			// enableBodyScroll(ref.current);
 			// // Unbind the event listener on clean up
-			// document.removeEventListener("click", handleClickOutside);
+			document.removeEventListener("click", handleClickOutside);
 		};
 	}, [ref]);
 
