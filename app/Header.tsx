@@ -260,7 +260,7 @@ const Header = () => {
 					src="/img/logo-v2.svg"
 					quality={100}
 					width={500}
-					height={502}
+					height={504}
 					alt="Logo"
 					priority
 				/>
@@ -280,7 +280,7 @@ const Header = () => {
 								src="/img/logo.svg"
 								quality={100}
 								width={500}
-								height={502}
+								height={504}
 								alt="Logo"
 								priority
 							/>
