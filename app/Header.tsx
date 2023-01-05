@@ -372,7 +372,8 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 
 	React.useEffect(() => {
 		lockBody();
-		if (ref.current) disableBodyScroll(ref.current);
+		// if (ref.current) disableBodyScroll(ref.current);
+		document.body.classList.add("overflow-hidden");
 
 		// Alert if clicked on outside of element
 		function handleClickOutside(event: Event) {
@@ -385,10 +386,12 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 		document.addEventListener("click", handleClickOutside);
 		return () => {
 			unLockBody();
-			clearAllBodyScrollLocks();
-			enableBodyScroll(ref.current);
-			// Unbind the event listener on clean up
-			document.removeEventListener("click", handleClickOutside);
+			document.body.classList.remove("overflow-hidden");
+
+			// clearAllBodyScrollLocks();
+			// enableBodyScroll(ref.current);
+			// // Unbind the event listener on clean up
+			// document.removeEventListener("click", handleClickOutside);
 		};
 	}, [ref]);
 
@@ -412,7 +415,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					<VscClose className="w-8 h-8" />
 				</button>
 			</div>
-			<div className="flex-1 flex flex-col gap-8 justify-between">
+			<div className="flex-1 flex flex-col gap-8 justify-between overflow-y-auto">
 				<ul className="flex flex-col gap-6__">
 					{MenuItems.map((item, i) => (
 						<li
