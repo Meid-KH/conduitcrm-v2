@@ -371,8 +371,9 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 	const ref = React.useRef() as React.MutableRefObject<HTMLElement>;
 
 	React.useEffect(() => {
+		// Show blurred background
 		lockBody();
-		// if (ref.current) disableBodyScroll(ref.current);
+		// Disable body scroll
 		document.body.classList.add("overflow-hidden");
 
 		// Alert if clicked on outside of element
@@ -385,12 +386,11 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 		// Bind the event listener
 		document.addEventListener("click", handleClickOutside);
 		return () => {
+			// hide blurred background
 			unLockBody();
+			// Enable body scroll again
 			document.body.classList.remove("overflow-hidden");
-
-			// clearAllBodyScrollLocks();
-			// enableBodyScroll(ref.current);
-			// // Unbind the event listener on clean up
+			// Unbind the event listener on clean up
 			document.removeEventListener("click", handleClickOutside);
 		};
 	}, [ref]);
