@@ -1,6 +1,9 @@
 import React, { FC, MouseEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { classNames } from "utils/classNames";
 import { Logo, LogoLarge } from "components/Logo";
 import { FaUserAlt, FaFilter, FaServer } from "react-icons/fa";
@@ -10,6 +13,7 @@ import { BsFillChatSquareTextFill } from "react-icons/bs";
 import { useUIContext } from "hooks/useUI";
 import { VscClose } from "react-icons/vsc";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { FiChevronDown } from "react-icons/fi";
 interface IMenuItem {
 	label: string;
 	url: string;
@@ -21,34 +25,108 @@ interface ISubMenuItem {
 	url: string;
 	description: string;
 }
+interface ISubMenuItemMobile {
+	title: string;
+	url: string;
+	description: string;
+}
 
+// MENU DATA
+const ressourceData = [
+	{
+		title: "Knowledgebase",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		title: "Videos",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		title: "About us",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		title: "Blog",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+];
+
+const FeaturesData: ISubMenuItem[] = [
+	{
+		icon: (
+			<FaUserAlt className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "CRM",
+		url: "/crm",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<FaFilter className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Pipelines",
+		url: "/pipelines",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<AiFillDollarCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Deals",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<FaServer className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Dynamic Forms",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<IoFlash className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Automation",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<BsFillChatSquareTextFill className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Omnichannel Outreach",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+	{
+		icon: (
+			<AiFillCheckCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
+		),
+		title: "Tasks",
+		url: "#",
+		description:
+			"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
+	},
+];
+
+// Megamenus Components
 const RessourcesMegamenu = () => {
-	const ressourceData = [
-		{
-			title: "Knowledgebase",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			title: "Videos",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			title: "About us",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			title: "Blog",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-	];
 	return (
 		<div className="">
 			<h2 className="text-sm font-extrabold tracking-wide">
@@ -88,71 +166,6 @@ const RessourcesMegamenu = () => {
 };
 
 const FeaturesMegamenu = () => {
-	const FeaturesData: ISubMenuItem[] = [
-		{
-			icon: (
-				<FaUserAlt className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "CRM",
-			url: "/crm",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<FaFilter className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Pipelines",
-			url: "/pipelines",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<AiFillDollarCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Deals",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<FaServer className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Dynamic Forms",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<IoFlash className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Automation",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<BsFillChatSquareTextFill className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Omnichannel Outreach",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-		{
-			icon: (
-				<AiFillCheckCircle className="flex-shrink-0 w-6 h-6 text-primary group-scope-hover:text-light" />
-			),
-			title: "Tasks",
-			url: "#",
-			description:
-				"Simplify Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime ullam nesciunt, atque sint porro eum cumque fugit rem minima libero, repellendus ipsa architecto, commodi fugiat deserunt minus tempora qui",
-		},
-	];
 	return (
 		<div className="">
 			<h2 className="text-sm font-extrabold tracking-wide">
@@ -190,6 +203,7 @@ const MenuItems = [
 		label: "Features",
 		url: "#",
 		megaMenu: <FeaturesMegamenu />,
+		subMenuItems: FeaturesData,
 	},
 	{
 		label: "Pricing",
@@ -199,6 +213,7 @@ const MenuItems = [
 		label: "Resources",
 		url: "#",
 		megaMenu: <RessourcesMegamenu />,
+		subMenuItems: ressourceData,
 	},
 	{
 		label: "Contact",
@@ -250,7 +265,7 @@ const Header = () => {
 					priority
 				/>
 			</Link>
-			<div className="relative container__">
+			<div className="relative__ container__">
 				<nav className="grid grid-cols-12 items-center justify-between gap-6">
 					<div className="col-span-2 xl:col-span-4 flex-shrink-0">
 						<Link
@@ -375,8 +390,8 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 	open = false,
 	closeMenu,
 }) => {
+	const router = useRouter();
 	const { lockBody, unLockBody } = useUIContext();
-	const [sticky, __] = React.useState(false);
 	const ref = React.useRef() as React.MutableRefObject<HTMLElement>;
 
 	React.useEffect(() => {
@@ -404,6 +419,123 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 		};
 	}, [ref]);
 
+	const MobileSubMenu = (
+		props: {
+			title: string;
+			url: string;
+			description: string;
+		}[]
+	) => {
+		const variants = {
+			hide: {
+				opacity: 0,
+				height: 0,
+				padding: 0,
+				marginTop: 0,
+				marginBottom: 0,
+			},
+			show: {
+				opacity: 1,
+				height: "auto",
+				padding: 16,
+				marginTop: 16,
+				marginBottom: 16,
+				transition: {
+					duration: 0.25,
+					staggerChildren: 0.2,
+				},
+			},
+		};
+
+		return (
+			<motion.ul
+				// variants={variants}
+				// initial="hide"
+				// animate={subMenu ? "show" : "hide"}
+				initial={{ opacity: 0, height: 0 }}
+				animate={{ opacity: 1, height: "auto" }}
+				exit={{ opacity: 0, height: 0 }}
+				transition={{
+					duration: 0.35,
+					type: "tween",
+				}}
+				className={classNames(
+					"text-light/70 p-4 ml-4__ bg-skin-100 border border-light/20 rounded-lg my-4"
+				)}
+			>
+				{Object.values(props).map((subItem, i) => (
+					<li key={i}>
+						<Link
+							href={subItem.url}
+							className="inline-block text-sm py-1.5"
+							onClick={(e) => {
+								e.preventDefault();
+								closeMenu();
+								router.push(subItem?.url);
+							}}
+						>
+							{subItem.title}
+						</Link>
+					</li>
+				))}
+			</motion.ul>
+		);
+	};
+
+	const MenuItemLink = ({ link: item }: any) => {
+		const [subMenu, setSubMenu] = React.useState(false);
+
+		return (
+			<li
+				className={classNames(
+					"group px-6 py-4 -mx-4",
+					item.subMenuItems && "relative pr-12"
+				)}
+				// onMouseEnter={() => item.megaMenu && lockBody()}
+				// onMouseLeave={() => item.megaMenu && unLockBody()}
+			>
+				<Link
+					href={item?.url}
+					className={classNames(
+						"flex tracking-wide text-left"
+						// "hover:bg-skin-light hover:text-skin-100"
+					)}
+					onClick={(e) => {
+						e.preventDefault();
+						if (!item.subMenuItems) {
+							closeMenu();
+							router.push(item?.url);
+						}
+						setSubMenu(!subMenu);
+					}}
+				>
+					{item?.label}
+				</Link>
+				{/* Caret */}
+				{item.subMenuItems && (
+					<button
+						onClick={() => setSubMenu(!subMenu)}
+						className="absolute right-5 top-2.5 w-10 h-10 grid place-items-center"
+					>
+						<FiChevronDown
+							className={classNames(
+								"w-6 h-6",
+								!subMenu && "-rotate-90"
+							)}
+						/>
+					</button>
+				)}
+
+				{/* SubmenuItems - wrapper */}
+				{item.subMenuItems && (
+					<AnimatePresence>
+						{subMenu && <MobileSubMenu {...item.subMenuItems} />}
+					</AnimatePresence>
+				)}
+			</li>
+		);
+	};
+
 	return (
 		<nav
 			ref={ref}
@@ -430,41 +562,9 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					"pb-16"
 				)}
 			>
-				<ul className="flex flex-col gap-6__">
+				<ul className="flex flex-col gap-6__ overflow-x-hidden">
 					{MenuItems.map((item, i) => (
-						<li
-							key={i}
-							className={classNames("group")}
-							// onMouseEnter={() => item.megaMenu && lockBody()}
-							// onMouseLeave={() => item.megaMenu && unLockBody()}
-						>
-							<Link
-								href={item?.url}
-								className={classNames(
-									"flex tracking-wide text-left px-6 py-4",
-									"hover:bg-skin-light hover:text-skin-100"
-								)}
-							>
-								{item?.label}
-							</Link>
-							{/* megamenu - wrapper */}
-							{item.megaMenu && (
-								<div
-									className={classNames(
-										"absolute z-10 left-0",
-										sticky
-											? "top-[calc(100%-1.5rem)]"
-											: "top-[calc(100%-2.5rem)]",
-										"bg-skin-200/90 py-10 backdrop-blur__",
-										"w-full h-[50vh]__ hidden group-hover:block"
-									)}
-								>
-									<div className="container">
-										{item.megaMenu && item.megaMenu}
-									</div>
-								</div>
-							)}
-						</li>
+						<MenuItemLink key={i} link={item} />
 					))}
 				</ul>
 				<ul className="flex flex-col gap-3">
