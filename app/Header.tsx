@@ -409,7 +409,12 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					<VscClose className="w-8 h-8" />
 				</button>
 			</div>
-			<div className="flex-1 flex flex-col gap-8 justify-between overflow-y-auto">
+			<div
+				className={classNames(
+					"flex-1 flex flex-col gap-8 justify-between overflow-y-auto",
+					"pb-16"
+				)}
+			>
 				<ul className="flex flex-col gap-6__">
 					{MenuItems.map((item, i) => (
 						<li
