@@ -303,9 +303,11 @@ const Header = () => {
 					</div>
 				</nav>
 			</div>
-			{mobileMenu && (
-				<MobileMenu closeMenu={() => setMobileMenu(false)} />
-			)}
+			<AnimatePresence>
+				{mobileMenu && (
+					<MobileMenu closeMenu={() => setMobileMenu(false)} />
+				)}
+			</AnimatePresence>
 		</header>
 	);
 };
@@ -513,12 +515,20 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 	};
 
 	return (
-		<nav
+		<motion.nav
+			initial={{ opacity: 0, x: "-100%", scale: 0.95 }}
+			animate={{ opacity: 1, x: 0, scale: 1 }}
+			exit={{ opacity: 0, x: "-100%", scale: 0.95 }}
+			transition={{
+				// duration: 0.45,
+				type: "tween",
+			}}
 			ref={ref}
 			className={classNames(
 				"fixed top-0 left-0",
 				"sm:max-w-md w-full h-screen p-4 sm:p-8",
-				"bg-skin-200/80 backdrop-blur-xl flex flex-col"
+				"bg-skin-200/80 backdrop-blur-xl flex flex-col",
+				"origin-top-left"
 			)}
 		>
 			<div className="text-xl fontbold uppercase tracking-wide mb-12">
@@ -570,7 +580,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
 
