@@ -426,44 +426,11 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 			description: string;
 		}[]
 	) => {
-		const variants = {
-			hide: {
-				opacity: 0,
-				height: 0,
-				padding: 0,
-				marginTop: 0,
-				marginBottom: 0,
-			},
-			show: {
-				opacity: 1,
-				height: "auto",
-				padding: 16,
-				marginTop: 16,
-				marginBottom: 16,
-				transition: {
-					duration: 0.25,
-					staggerChildren: 0.2,
-				},
-			},
-		};
-
 		return (
 			<motion.ul
-				// variants={variants}
-				// initial="hide"
-				// animate={subMenu ? "show" : "hide"}
-				initial={{
-					opacity: 0,
-					height: 0,
-				}}
-				animate={{
-					opacity: 1,
-					height: "max-content",
-				}}
-				exit={{
-					opacity: 0,
-					height: 0,
-				}}
+				initial={{ opacity: 0, height: 0 }}
+				animate={{ opacity: 1, height: "max-content" }}
+				exit={{ opacity: 0, height: 0 }}
 				transition={{
 					duration: 0.35,
 					type: "tween",
@@ -476,7 +443,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					<li key={i}>
 						<Link
 							href={subItem.url}
-							className="inline-block text-sm py-1.5"
+							className="block text-sm py-1.5"
 							onClick={(e) => {
 								e.preventDefault();
 								closeMenu();
@@ -506,7 +473,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 				<Link
 					href={item?.url}
 					className={classNames(
-						"flex tracking-wide text-left"
+						"flex tracking-wide text-lg text-left"
 						// "hover:bg-skin-light hover:text-skin-100"
 					)}
 					onClick={(e) => {
@@ -581,7 +548,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 						<Link
 							href="#"
 							className={classNames(
-								"block tracking-wide text-center px-6 py-4",
+								"block tracking-wide text-lg text-center px-6 py-4",
 								"bg-skin-100 text-skin-light",
 								"hover:bg-skin-100 hover:text-skin-light"
 							)}
@@ -593,7 +560,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 						<Link
 							href="/pricing"
 							className={classNames(
-								"px-9 py-4 font-medium block text-center",
+								"px-9 py-4 font-medium text-lg block text-center",
 								"bg-primary border border-primary",
 								"hover:bg-skin-200 hover:border-skin-light"
 							)}
