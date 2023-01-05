@@ -235,25 +235,40 @@ const Header = () => {
 			<Link
 				href="/"
 				className={classNames(
-					"w-28 xl:w-40 absolute left-0 top-0 overflow-hidden"
+					"w-28 xl:w-40 absolute left-0 top-0 overflow-hidden",
+					sticky ? "opacity-0" : "opacity-100"
 				)}
 			>
 				{/* <Logo className="-translate-x-8 -translate-y-8" /> */}
-				<LogoLarge
-					className={classNames(sticky ? "opacity-0" : "opacity-100")}
+				{/* <Logo /> */}
+				<Image
+					src="/img/logo-v2.svg"
+					quality={100}
+					width={500}
+					height={502}
+					alt="Logo"
+					priority
 				/>
 			</Link>
-			<div className="container__">
+			<div className="relative container__">
 				<nav className="grid grid-cols-12 items-center justify-between gap-6">
-					<div className="col-span-2 xl:col-span-4 w-14 flex-shrink-0">
+					<div className="col-span-2 xl:col-span-4 flex-shrink-0">
 						<Link
 							href="/"
 							className={classNames(
-								"block transition duration-75",
+								"w-14 block transition duration-75",
 								sticky ? "opacity-100" : "opacity-0"
 							)}
 						>
-							<Logo />
+							{/* <Logo /> */}
+							<Image
+								src="/img/logo.svg"
+								quality={100}
+								width={500}
+								height={502}
+								alt="Logo"
+								priority
+							/>
 						</Link>
 					</div>
 					<div className="col-span-10 xl:col-span-8 hidden lg:flex items-center justify-between gap-6">

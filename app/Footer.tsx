@@ -166,7 +166,7 @@ const Footer = () => {
 					<div className="grid grid-cols-12 gap-8 gap-y-16">
 						<div className="col-span-full lg:col-span-4 xl:col-span-6 space-y-8">
 							<div className="w-20 flex gap-6 items-center">
-								<LogoWhite className="flex-shrink-0" />
+								<LogoWhite className="w-16 sm:w-20 flex-shrink-0" />
 								<span className="text-5xl font-black tracking-wider">
 									Conduit
 								</span>
