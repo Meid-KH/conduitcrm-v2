@@ -452,9 +452,18 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 				// variants={variants}
 				// initial="hide"
 				// animate={subMenu ? "show" : "hide"}
-				initial={{ opacity: 0, height: 0 }}
-				animate={{ opacity: 1, height: "auto" }}
-				exit={{ opacity: 0, height: 0 }}
+				initial={{
+					opacity: 0,
+					height: 0,
+				}}
+				animate={{
+					opacity: 1,
+					height: "max-content",
+				}}
+				exit={{
+					opacity: 0,
+					height: 0,
+				}}
 				transition={{
 					duration: 0.35,
 					type: "tween",
