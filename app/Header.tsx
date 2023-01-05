@@ -10,12 +10,6 @@ import { BsFillChatSquareTextFill } from "react-icons/bs";
 import { useUIContext } from "hooks/useUI";
 import { VscClose } from "react-icons/vsc";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import {
-	disableBodyScroll,
-	enableBodyScroll,
-	clearAllBodyScrollLocks,
-} from "body-scroll-lock";
-
 interface IMenuItem {
 	label: string;
 	url: string;
