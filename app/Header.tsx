@@ -536,7 +536,7 @@ const MobileMenu: FC<{ open?: boolean; closeMenu: () => void }> = ({
 					onClick={() => closeMenu()}
 					className="flex items-center gap-1 px-1 py-3 border___ rounded-full ml-auto opacity-90 hover:opacity-100"
 				>
-					<span className="text-xs uppercase tracking-wider font-medium">
+					<span className="text-xs uppercase tracking-wider font-medium opacity-75">
 						Close menu
 					</span>
 					<VscClose className="w-8 h-8" />
